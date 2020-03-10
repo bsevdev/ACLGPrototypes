@@ -1,0 +1,28 @@
+
+Test Cases: 
+
+Things we need to detect: 
+
+- Detect error
+
+check if the signature is valid. If invalid, throw error.
+- Get the signature "-33"
+- place in string
+- check if it is equal to all index. If ALL fail, throw error
+
+
+
+
+
+General testing
+
+123 = D0-D6-D3-44
+
+In place: 
+
+- if decrypted data is larger than max, error
+- if encrypted data is larger than max, error
+- if 1 node is invalid, error
+- if signature is invalid, error
+
+- if user enters a "number" to decrypt

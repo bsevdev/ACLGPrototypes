@@ -1,0 +1,43 @@
+This is Playground v 3.0
+Implementation of Game Feed 
+---------------------------
+16-12-19 |
+---------------------------
+
+Game Feed TESTING needs the following: 
+
+(may need to reimplement some basic settings for the command window)
+
+						[DEV LIST]
+-- Say "something" when a command is typed ("This is only a test environment")							[DONE]
+-- Stack text on top of each other (array?)																[DONE]
+-- Clear the "highest" text string once it hits the top													[DONE]
+-- Implement a quick TIP system																			[DONE]
+-- Run a command "run" that mimics carrying out a skill. This will be a test of text being flooded.		[DONE]
+
+Once these are done, we can work onwards: 
+
+-- UI Lines / dashed lines
+-- Random [TIP] system for game																			[DONE]
+-- Windows Alerts																						[DONE]
+-- Music on/off toggle
+
+Once these are done, we can push this to the LIVE system 
+
+
+---------------------------------------------------
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[TESTING]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+17-12-19
+
+Testing on Lewis's machine. Issues: 
+
+- Screen resoloution did not pick up
+- Screen buffer did not pick up (due to local finding in main())
+------------------------------------------------------------------------------------------------------------
+
+TDL for tonight: 
+
+- Figure out why resolution doesn't pick up
+- Figure how to make buffer pick up
+- Continue with "DEV LIST"

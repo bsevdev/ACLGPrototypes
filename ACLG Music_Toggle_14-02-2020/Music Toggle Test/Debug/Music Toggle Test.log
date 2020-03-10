@@ -1,0 +1,7 @@
+﻿  Source.cpp
+C:\Users\Blake\Desktop\ACLG\Music Toggle Test\Music Toggle Test\audioTest.cpp(58,11): warning C4244:  'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+C:\Users\Blake\Desktop\ACLG\Music Toggle Test\Music Toggle Test\audioTest.cpp(79,1): warning C4305:  'initializing': truncation from 'double' to 'float'
+C:\Users\Blake\Desktop\ACLG\Music Toggle Test\Music Toggle Test\audioTest.cpp(85,35): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Blake\Desktop\ACLG\Music Toggle Test\Music Toggle Test\audioTest.cpp(86,23): warning C4244:  '=': conversion from 'float' to 'short', possible loss of data
+  LINK : C:\Users\Blake\Desktop\ACLG\Music Toggle Test\Debug\Music Toggle Test.exe not found or not built by the last incremental link; performing full link
+  Music Toggle Test.vcxproj -> C:\Users\Blake\Desktop\ACLG\Music Toggle Test\Debug\Music Toggle Test.exe

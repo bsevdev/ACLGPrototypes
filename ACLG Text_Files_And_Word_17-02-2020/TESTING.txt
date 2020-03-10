@@ -1,0 +1,6 @@
+17-12-19
+
+Testing on Lewis's machine. Issues: 
+
+- Screen resoloution did not pick up
+- Screen buffer did not pick up (due to local finding in main())

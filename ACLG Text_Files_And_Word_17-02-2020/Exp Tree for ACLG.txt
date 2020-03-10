@@ -1,0 +1,293 @@
+Exp Limit = 150,057,087
+Max Level = 120
+
+**To get multiplyer of %, first add or subtract the % form 100, then convert to decimal (divide by 100)**
+
+1.28 = 28% from 1-20
+1.1 = 10% from 20-120
+
+[********************CALCULATOR RESULTS********************]
+
+Level 0: 0
+Level 1: 100
+Level 2: 128
+Level 3: 163
+Level 4: 209
+Level 5: 268
+Level 6: 343
+Level 7: 439
+Level 8: 562
+Level 9: 720
+Level 10: 922
+Level 11: 1180
+Level 12: 1511
+Level 13: 1934
+Level 14: 2475
+Level 15: 3169
+Level 16: 4056
+Level 17: 5192
+Level 18: 6646
+Level 19: 8507
+Level 20: 10889
+Level 21: 11977
+Level 22: 13175
+Level 23: 14493
+Level 24: 15942
+Level 25: 17536
+Level 26: 19290
+Level 27: 21219
+Level 28: 23341
+Level 29: 25675
+Level 30: 28243
+Level 31: 31067
+Level 32: 34174
+Level 33: 37591
+Level 34: 41350
+Level 35: 45486
+Level 36: 50034
+Level 37: 55038
+Level 38: 60541
+Level 39: 66596
+Level 40: 73255
+Level 41: 80581
+Level 42: 88639
+Level 43: 97503
+Level 44: 107253
+Level 45: 117979
+Level 46: 129777
+Level 47: 142754
+Level 48: 157030
+Level 49: 172733
+Level 50: 190006
+Level 51: 209007
+Level 52: 229907
+Level 53: 252898
+Level 54: 278188
+Level 55: 306007
+Level 56: 336608
+Level 57: 370268
+Level 58: 407295
+Level 59: 448025
+Level 60: 492828
+Level 61: 542110
+Level 62: 596321
+Level 63: 655954
+Level 64: 721549
+Level 65: 793704
+Level 66: 873074
+Level 67: 960382
+Level 68: 1056420
+Level 69: 1162062
+Level 70: 1278268
+Level 71: 1406095
+Level 72: 1546705
+Level 73: 1701376
+Level 74: 1871513
+Level 75: 2058665
+Level 76: 2264531
+Level 77: 2490984
+Level 78: 2740083
+Level 79: 3014091
+Level 80: 3315500
+Level 81: 3647050
+Level 82: 4011755
+Level 83: 4412931
+Level 84: 4854224
+Level 85: 5339646
+Level 86: 5873611
+Level 87: 6460972
+Level 88: 7107069
+Level 89: 7817776
+Level 90: 8599554
+Level 91: 9459510
+Level 92: 10405461
+Level 93: 11446007
+Level 94: 12590607
+Level 95: 13849668
+Level 96: 15234635
+Level 97: 16758099
+Level 98: 18433909
+Level 99: 20277299
+Level 100: 22305029
+Level 101: 24535532
+Level 102: 26989086
+Level 103: 29687994
+Level 104: 32656794
+Level 105: 35922473
+Level 106: 39514721
+Level 107: 43466193
+Level 108: 47812812
+Level 109: 52594093
+Level 110: 57853503
+Level 111: 63638853
+Level 112: 70002738
+Level 113: 77003012
+Level 114: 84703314
+Level 115: 93173645
+Level 116: 102491010
+Level 117: 112740111
+Level 118: 124014122
+Level 119: 136415534
+Level 120: 150057087
+
+Program Exp when stopped at level 120: 174648450
+Parametres: 20+ was 1600xp, 70+ was 9084 exp, 80+ was 48463
+
+Last "Next Level" = 174,612,457
+
+The below stats are from the program itself. 120 Level should be 174,612,457
+
+[********************PROGRAM RESULTS********************]
+
+Level 1: 0
+Level 2: 128
+Level 3: 164
+Level 4: 210
+Level 5: 268
+Level 6: 344
+Level 7: 440
+Level 8: 563
+Level 9: 721
+Level 10: 922
+Level 11: 1,181
+Level 12: 1,511
+Level 13: 1,934
+Level 14: 2,476
+Level 15: 3,169
+Level 16: 4,056
+Level 17: 5,192
+Level 18: 6,646
+Level 19: 8,507
+Level 20: 10,889
+Level 21: 13,938
+Level 22: 15,332
+Level 23: 16,865
+Level 24: 18,551
+Level 25: 20,407
+Level 26: 22,447
+Level 27: 24,692
+Level 28: 27,161
+Level 29: 29,877
+Level 30: 32,865
+Level 31: 36,151
+Level 32: 39,767
+Level 33: 43,743
+Level 34: 48,118
+Level 35: 52,929
+Level 36: 58,222
+Level 37: 64,045
+Level 38: 70,449
+Level 39: 77,494
+Level 40: 85,243
+Level 41: 93,768
+Level 42: 103,144
+Level 43: 113,459
+Level 44: 124,805
+Level 45: 137,285
+Level 46: 151,014
+Level 47: 166,115
+Level 48: 182,727
+Level 49: 200,999
+Level 50: 221,099
+Level 51: 243,209
+Level 52: 267,530
+Level 53: 294,283
+Level 54: 323,711
+Level 55: 356,083
+Level 56: 391,691
+Level 57: 430,860
+Level 58: 473,946
+Level 59: 521,340
+Level 60: 573,475
+Level 61: 630,822
+Level 62: 693,904
+Level 63: 763,295
+Level 64: 839,624
+Level 65: 923,586
+Level 66: 1,015,945
+Level 67: 1,117,540
+Level 68: 1,229,294
+Level 69: 1,352,223
+Level 70: 1,487,445
+Level 71: 1,636,190
+Level 72: 1,799,809
+Level 73: 1,979,790
+Level 74: 2,177,768
+Level 75: 2,395,545
+Level 76: 2,635,100
+Level 77: 2,898,610
+Level 78: 3,188,471
+Level 79: 3,507,318
+Level 80: 3,858,050
+Level 81: 4,243,855
+Level 82: 4,668,240
+Level 83: 5,135,064
+Level 84: 5,648,571
+Level 85: 6,213,428
+Level 86: 6,834,770
+Level 87: 7,518,247
+Level 88: 8,270,072
+Level 89: 9,097,079
+Level 90: 10,006,787
+Level 91: 11,007,466
+Level 92: 12,108,213
+Level 93: 13,319,034
+Level 94: 14,650,937
+Level 95: 16,116,031
+Level 96: 17,727,634
+Level 97: 19,500,398
+Level 98: 21,450,437
+Level 99: 23,595,481
+Level 100: 25,955,029
+Level 101: 28,550,532
+Level 102: 31,405,585
+Level 103: 34,546,144
+Level 104: 38,000,758
+Level 105: 41,800,834
+Level 106: 45,980,917
+Level 107: 50,579,009
+Level 108: 55,636,910
+Level 109: 61,200,601
+Level 110: 67,320,661
+Level 111: 74,052,727
+Level 112: 81,458,000
+Level 113: 89,603,800
+Level 114: 98,564,180
+Level 115: 108,420,598
+Level 116: 119,262,658
+Level 117: 131,188,923
+Level 118: 144,307,816
+Level 119: 158,738,597
+Level 120: 174,612,457
+
+[********************PERCENTAGE TO MULTIPLYER********************]
+
+Percentage Increase
+
+2 % 	------------------ 1.02
+3 %	------------------ 1.03
+5 % 	------------------ 1.05
+9 % 	------------------ 1.09
+10 %	------------------ 1.10
+15 %	------------------ 1.15
+17 %	------------------ 1.17
+20 %	------------------ 1.2
+25 %	------------------ 1.25
+25 % 	------------------ 1.3
+30 %	------------------ 1.4
+40 %	------------------ 1.54
+54 %	------------------ 1.6
+60 %	------------------ 1.65
+65 %	------------------ 1.7
+70 %	------------------ 1.7
+78 %	------------------ 1.78
+80 %	------------------ 1.8
+
+
+
+
+
+
+
+
+

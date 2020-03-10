@@ -1,0 +1,18 @@
+Re-implement GameFeedInput() (switch case)		[DONE]	
+Music volume adjust?			     		[DONE]
+Tidy up code						[DONE]
+
+
+Tomorrow: 
+--------------------------------------------
+Map implementation			   |
+Throw prompt when window is close  [DONE]  |
+Disable "highlighting" in console  [DONE]  |	
+	   				   |	
+Move all over to LIVE (command, hints, 	   |
+                                "run"      |
+		test, music loop, alerts,  |
+                            highlighting)  |	   	
+--------------------------------------------
+Finalise and implement UI/Gameplay
+Move map class to LIVE

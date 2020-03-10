@@ -1,0 +1,624 @@
+//
+// Blake Montaque, Hash Program. 
+// Duration to complete: 5.5 hours
+//
+
+#include <iostream>
+#include <string>
+#include <string>
+#include "modTest.cpp"
+#include <thread>
+#include <ctime>
+#include <sstream>
+
+using namespace std;
+
+#pragma region Program Instructions
+
+// 1. User asked if they want to Encrypt or Decrypt		[done]
+// 2. User can encrypt									[done]
+// 3. User can decrypt									[done]
+// 4. Program will select a random string (signature) and display
+// 5. Testing (bug checking, performance etc.)
+
+// ---------------------
+
+// SO: https://stackoverflow.com/questions/1860983/convert-integer-to-array
+
+/*
+123456 % 10 = 6
+
+123456 / 10 = 12345
+
+12345 % 10 = 5
+
+12345 / 10 = 1234
+
+*/
+#pragma endregion
+
+#pragma region
+// 1. Create offial encryption strings
+// 2. Tidy code							
+// 3. Error checking						[DONE]
+// x. Value resets
+// 4. Testing
+#pragma endregion TDL 27-02-2020
+
+#pragma region
+Mod getMod;					// FOR TESTING PURPOSES
+
+int option;					// for switch case choice
+int number;					// the number we ask for the user to input
+int newNumber;				// we place the above number in a new variable, and use this for encryption, so we can store the entered number somewhere
+
+//					      0		1   2	  3	   4   5	6	  7	   8    9
+string hashArray[10] = { "J3","D0","D6","D3","A9","S7","M1","J2","J0", "9J" };   
+
+string Signatures[10] = {	"-D3H8T7K-K8F7N5Z-8K3G7D8", "-J8S9B4H-K1F7S9G-S7G3G6D", "-D3Z6V8G-L0F3F6D-F8S4M5F", "-D8J3X75-V7M4C8B-A6Q3C6M", "-L4G1X7D-G7S9X4V-G7S2H0D", 
+							"-Q7F8D3J-K6J8D9X-F8D9F5H", "-N7D8G4A-G7S9F7Q-D4J8D7F", "-F8Z9C0A-M1B5L3D-B7V5X8J", "-Z0S7C9G-M1J4H5F-B1G0H8Q", "-M6L5K4G-Z7F5Q7T-G8D2J9T" };
+
+string getHashArray[10] = { "emp","emp", "emp","emp","emp","emp","emp","emp", "emp" };
+
+int userExpAsArray[9] = {NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL };
+
+int encryptArray[9] = {0,0,0,0,0,0,0,0,0};		// we run our list of numbers in this array, any numbers not used are cut off
+
+int modTen = 10;			// we use modulus and divide by 10 during int -> array convert
+int dump;					// we dump each 'single' number in the dump var
+int digitCount;				// increment each loop, this counts how many times we've had to calculate, which tells us how many integers there are
+
+int arrayIndex;				// this will equal the character amount minus one, so we can track index of hashArray
+string stringHashValue;		// our full hash Value
+string encryptData;
+
+bool stopBar = false;		// we use this to determine when to stop using the bar
+
+int trackNumberCount = 0;
+int findHit = 0;
+
+int maxExp = 174612457;
+
+bool signatureOK = false;
+
+#pragma endregion Variables
+
+void checkSignatureValid() {
+
+	int signatureCheckLength = encryptData.length();
+	int signaturePoint = signatureCheckLength - 24;
+	string getSignature = encryptData.substr(signaturePoint, 24);
+
+	cout << "\nYour signature is: " << getSignature;
+
+	try {
+
+		if (getSignature == Signatures[0]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[1]) {
+			signatureOK = true;
+		}
+	
+		else if (getSignature == Signatures[2]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[3]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[4]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[5]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[6]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[7]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[8]) {
+			signatureOK = true;
+		}
+
+		else if (getSignature == Signatures[9]) {
+			signatureOK = true;
+		}
+
+		else {
+			throw 48;
+		}
+	}
+	catch (int x) {
+		system("cls");
+		cout << "There was an error encrypting your data. Error code: " << x << "\n";
+		this_thread::sleep_for(chrono::seconds(100)); // exit?
+	}
+
+}
+
+void intToArray() {
+
+	cout << "\n";
+	
+	newNumber = number;							// we store our entered number in newNumber var
+
+	for (int i = 0; i < 9; i++) {				// each time we loop, our max number of loops is 9. the user cannot push more than 9 digits to number var
+
+		dump = newNumber % 10;					// we get the last number of our ENTERED number, and place it in dump 
+
+											// if it isn't 0, it's not the last number. 
+		encryptArray[i] = dump;				// we place the single digit in the first index.
+		newNumber = newNumber / 10;			// we then take off the last digit of newNumber
+		++digitCount;						// we count each loop. 
+		
+
+		if (newNumber == 0) {					// before we place our result in our array, we check if newNumber is 0, if it is, then it is the last number
+			break;								// we break to stop the loop
+		}
+	}
+
+	for (int i = 0; i < digitCount; i++) {		// if we've hit a limit, we only display up to how many times we've looped
+		
+		cout << "" << encryptArray[i] << ",";	// we print these results
+	}
+	
+	cout << "\n\nDigit count: " << digitCount;
+	cout << "\n\n";
+
+}
+
+void arrayToHash() {
+	
+	arrayIndex = digitCount - 1;			// we make array index 1 less than digitCount. We can now track the index of hashArray
+	
+	// we start from current arrayIndex value and finish at 0 (we complete 0 too).
+
+	while(arrayIndex >= 0) {				// we continue to loop until we hit the last index of our filled array
+			
+		if (encryptArray[arrayIndex] == 0) {						// if our array is equal to this value, we concat our hash value to the string.....
+			
+			stringHashValue = stringHashValue + hashArray[0];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+			
+
+		}
+
+		else if (encryptArray[arrayIndex] == 1) {					//... if it it's that value, we check all possible cases (0-9)
+
+			stringHashValue = stringHashValue + hashArray[1];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 2) {
+
+			stringHashValue = stringHashValue + hashArray[2];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 3) {
+
+			stringHashValue = stringHashValue + hashArray[3];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 4) {
+
+			stringHashValue = stringHashValue + hashArray[4];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 5) {
+
+			stringHashValue = stringHashValue + hashArray[5];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 6) {
+
+			stringHashValue = stringHashValue + hashArray[6];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 7) {
+
+			stringHashValue = stringHashValue + hashArray[7];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 8) {
+
+			stringHashValue = stringHashValue + hashArray[8];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		else if (encryptArray[arrayIndex] == 9) {
+
+			stringHashValue = stringHashValue + hashArray[9];
+
+			if (arrayIndex != 0) {
+				stringHashValue = stringHashValue + "-";
+			}
+
+		}
+
+		--arrayIndex;			// once we have our value, we minus one from arrayIndex
+
+	}
+}
+
+int random(int from, int to) {
+	return rand() % (to - from + 1) + from;
+}
+
+void randomSignature() {
+
+	srand((int)time(0));
+	
+	int randomNumberForSignature;
+
+	randomNumberForSignature = random(1, 9);
+
+	if (randomNumberForSignature == 0) {
+
+		stringHashValue = stringHashValue + Signatures[0];
+
+	}
+
+	else if (randomNumberForSignature == 1) {
+
+		stringHashValue = stringHashValue + Signatures[1];
+
+	}
+
+	else if (randomNumberForSignature == 2) {
+
+		stringHashValue = stringHashValue + Signatures[2];
+
+	}
+
+	else if (randomNumberForSignature == 3) {
+
+		stringHashValue = stringHashValue + Signatures[3];
+
+	}
+
+	else if (randomNumberForSignature == 4) {
+
+		stringHashValue = stringHashValue + Signatures[4];
+
+	}
+
+	else if (randomNumberForSignature == 5) {
+
+		stringHashValue = stringHashValue + Signatures[5];
+
+	}
+
+	else if (randomNumberForSignature == 6) {
+
+		stringHashValue = stringHashValue + Signatures[6];
+
+	}
+
+	else if (randomNumberForSignature == 7) {
+
+		stringHashValue = stringHashValue + Signatures[7];
+
+	}
+
+	else if (randomNumberForSignature == 8) {
+
+		stringHashValue = stringHashValue + Signatures[8];
+
+	}
+
+	else if (randomNumberForSignature == 9) {
+
+		stringHashValue = stringHashValue + Signatures[9];
+
+	}
+
+	cout << "Hash ID: " << stringHashValue << "\n\n\n";		// print our value.
+
+	// sleep here
+	this_thread::sleep_for(chrono::seconds(100));
+
+
+
+}
+
+void encryptToArray() {
+
+	int signatureCutOff;
+	int holdLength;
+	const int signatureLength = 24;		// WILL CHANGE DUE TO LENTH OF SIGNATURE
+	string newEncryptData;
+	int findIndex = 0;
+	int moveUpArray = 0;
+	
+	// first, we get the length of our string variable
+
+	cout << "Data length: " << encryptData.length(); "\n";
+
+	checkSignatureValid();
+
+	if (signatureOK == true) {
+
+		// whatever the length is, we grab the entire string except the last 3 digits (depending on character size of signatures). This will cut off the signature.
+
+		holdLength = encryptData.length();
+		signatureCutOff = holdLength - 24;			// signature is now equal to length minus 3
+
+		cout << "\nData without Signature: " << encryptData.substr(0, signatureCutOff) << std::endl;
+
+		newEncryptData = encryptData.substr(0, signatureCutOff);
+
+		// Now we want to place our data in an array. 
+
+		for (signed int findIndex = 0; findIndex < newEncryptData.length(); findIndex = findIndex + 3) {
+
+			cout << "\n\nFor testing: " << newEncryptData.substr(findIndex, 2);
+
+			// we then store each number into a slot.
+
+			getHashArray[moveUpArray] = newEncryptData.substr(findIndex, 2);
+
+			moveUpArray++;
+			trackNumberCount++;
+
+		}
+
+		cout << "\n\n--------------\n\n";
+		// Lets print our array and check it works
+
+		for (int i = 0; i < 9; i++) {
+
+			cout << getHashArray[i];
+			cout << ",";
+		}
+	}
+
+	signatureOK = false;  // reset
+	
+}
+
+void ArrayToData() {
+
+	// we have our data in an array, now we need to check the data exists in the .exe
+
+	// getHashArray == where our data is stored
+	// hashArray == where our .exe data is stored
+
+	int i = 0;
+	int j = 0;
+	
+
+	while (trackNumberCount > 0) {
+
+		/*if (getHashArray[i] == "emp") {
+			break;
+		}*/
+
+		try {
+			if (getHashArray[i] == hashArray[0]) {
+				userExpAsArray[j] = 0;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[1]) {
+				userExpAsArray[j] = 1;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[2]) {
+				userExpAsArray[j] = 2;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[3]) {
+				userExpAsArray[j] = 3;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[4]) {
+				userExpAsArray[j] = 4;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[5]) {
+				userExpAsArray[j] = 5;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[6]) {
+				userExpAsArray[j] = 6;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[7]) {
+				userExpAsArray[j] = 7;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[8]) {
+				userExpAsArray[j] = 8;
+				findHit++;
+			}
+
+			else if (getHashArray[i] == hashArray[9]) {
+				userExpAsArray[j] = 9;
+				findHit++;
+			}
+
+			else {
+
+				throw 32;
+			}
+
+			++j;
+			++i;
+			--trackNumberCount;
+		}
+		catch (int x) {
+			
+			system("cls");
+			cout << "There was an error decrypting your data. Error code: " << x << "\n";
+			this_thread::sleep_for(chrono::seconds(100));  // exit??
+		}
+	}
+
+}
+
+void clearUnearnedZeros() {
+
+	// convert our array into a single int
+	stringstream ss;
+
+	for (unsigned i = 0; i < sizeof userExpAsArray / sizeof userExpAsArray[0]; ++i)
+		ss << userExpAsArray[i];
+
+	int result;
+	ss >> result;
+
+	 //we then perform calculations to remove 0's that we did not earn
+	
+	int tenValue = 10;
+	int loopValue = tenValue - findHit;
+	int newResult = 0;
+
+	// we make i = 1 as it seems to take the last value, so we push it forward. 
+	for (int i = 1; i < loopValue; i++) {
+		
+		// result = 13320000
+		
+		newResult = result / 10;
+		result = newResult;
+
+	}
+
+	try {
+
+		if (newResult > maxExp) {
+			throw 67;
+		}
+	
+	}
+	catch (int x) {
+
+		system("cls");
+		cout << "There was an error encrypting your data. Error code: " << x << "\n";
+		this_thread::sleep_for(chrono::seconds(100)); // exit?
+	}
+
+	cout << "You data: " << newResult;
+
+	// sleep here
+	this_thread::sleep_for(chrono::seconds(100));
+}
+
+int main(){
+
+	// Test area
+
+	//getMod.stringTest();
+
+	//this_thread::sleep_for(chrono::seconds(100));
+
+	#pragma region 
+	cout << "[Please select if you want to ENCRYPT or DECRYPT]\n\n";
+	cout << "1. Encrypt Data\n";
+	cout << "2. Decrypt Data\n\n";
+
+	cout << "Option: ";
+	cin >> option;
+	#pragma endregion Choice
+
+	switch (option) {
+	
+	case 1: // encryption
+
+		system("cls");
+
+		cout << "Enter a number: ";
+		cin >> number;
+
+		try {
+			
+			if (number > maxExp) {
+				throw 64;
+			}
+		}
+		catch (int x) {
+			
+			system("cls");
+			cout << "There was an error encrypting your data. Error code: " << x << "\n";
+			this_thread::sleep_for(chrono::seconds(100)); // exit?
+		}
+
+		intToArray();		// convert our number to an array
+		arrayToHash();		// convert our array to hash
+		randomSignature();
+
+		break;
+	case 2: // decryption
+
+		system("cls");
+
+		cout << "Enter encrypt data (Include \"-\"): ";
+		cin >> encryptData;
+
+		encryptToArray();
+		ArrayToData();
+		//diplayData();
+		clearUnearnedZeros();
+
+		break;
+
+	}
+
+	system("pause");
+}

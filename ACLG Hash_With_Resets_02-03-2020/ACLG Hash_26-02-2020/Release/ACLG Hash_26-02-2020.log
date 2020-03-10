@@ -1,0 +1,10 @@
+﻿  comma.cpp
+  main.cpp
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(474,37): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(689,7): error C3083:  'filesystem': the symbol to the left of a '::' must be a type
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(689,19): error C2039:  'create_directories': is not a member of 'std'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\include\iomanip(18): message :  see declaration of 'std'
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(689,37): error C3861:  'create_directories': identifier not found
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(692,11): error C3083:  'filesystem': the symbol to the left of a '::' must be a type
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(692,51): error C2440:  '<function-style-cast>': cannot convert from 'const char [16]' to 'std::is_empty'
+C:\Users\Blake\Desktop\ACLG\ACLG Hash_Testing_02-03-2020\ACLG Hash_With_Resets_02-03-2020\ACLG Hash_26-02-2020\main.cpp(692,31): message :  The target type has no constructors
