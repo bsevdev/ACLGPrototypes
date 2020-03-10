@@ -1,0 +1,13 @@
+﻿  Source.cpp
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(132,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(171,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(221,19): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(271,19): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(321,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(371,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(421,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(471,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(521,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(571,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+C:\Users\Blake\Desktop\ACLG\TextOMatic\UITesting\Source.cpp(621,18): warning C4838:  conversion from 'int' to 'SHORT' requires a narrowing conversion
+  UITesting.vcxproj -> C:\Users\Blake\Desktop\ACLG\TextOMatic\Debug\UITesting.exe

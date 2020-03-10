@@ -1,0 +1,115 @@
+What we'll need: 
+
+
+
+------------------------------
+1. Randomness (random numbers)
+------------------------------
+int generateExp(int from, int to) {
+	 
+	return rand() % (to - from + 1) + from;
+
+}
+// number can be stored: var = generateExp(1,10);
+
+
+
+-------------------
+2. Text placement 
+-------------------
+if (INVALID_HANDLE_VALUE != hConsole)
+	{
+		//         pos = {across, up/down}
+		COORD pos = { 30, 28 };
+
+		SetConsoleCursorPosition(hConsole, pos);
+
+		cout << "							";	
+
+	}
+
+
+-------------------------
+3. Thread time
+-------------------------
+#incldue <thread>
+std::this_thread::sleep_for(chrono::seconds(3));
+
+void animation() {
+
+	system("cls");
+	this_thread::sleep_for(chrono::seconds(1));
+
+	//while (1) {
+
+		if (INVALID_HANDLE_VALUE != hConsole)
+		{
+
+			//    pos = {across, up/down}
+			COORD pos = { 41, 15 };
+
+			SetConsoleCursorPosition(hConsole, pos);
+
+			cout << "Angus is translating...";
+			this_thread::sleep_for(chrono::seconds(1));
+
+		}
+
+		// Position of entire string text (42, 12)
+		if (INVALID_HANDLE_VALUE != hConsole)
+		{
+			//         pos = {across, up/down}
+			COORD pos = { 42, 12 };
+
+			SetConsoleCursorPosition(hConsole, pos);
+
+			cout << wholeString;
+		}
+
+		//// Default position of "A"
+		//if (INVALID_HANDLE_VALUE != hConsole)
+		//{
+		//	//         pos = {across, up/down}
+		//	COORD pos = { 42, 11 };
+
+		//	SetConsoleCursorPosition(hConsole, pos);
+
+		//	cout << a;
+		//}
+
+		//// Default position of "Command"
+		//if (INVALID_HANDLE_VALUE != hConsole)
+		//{
+		//	//         pos = {across, up/down}
+		//	COORD pos = { 44, 11 };
+
+		//	SetConsoleCursorPosition(hConsole, pos);
+
+		//	cout << cmd;
+		//}
+
+		//// Default position of "Line"
+		//if (INVALID_HANDLE_VALUE != hConsole)
+		//{
+		//	//         pos = {across, up/down}
+		//	COORD pos = { 52, 11 };
+
+		//	SetConsoleCursorPosition(hConsole, pos);
+
+		//	cout << line;
+		//}
+
+		//// Default position of "Game"
+		//if (INVALID_HANDLE_VALUE != hConsole)
+		//{
+		//	//         pos = {across, up/down}
+		//	COORD pos = { 57, 11 };
+
+		//	SetConsoleCursorPosition(hConsole, pos);
+
+		//	cout << game;
+		//}
+	//}
+
+	this_thread::sleep_for(chrono::seconds(1111));
+}
