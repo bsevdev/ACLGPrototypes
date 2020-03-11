@@ -17,7 +17,7 @@ int signatureCharLength = 120;
 int charHashLength = 239;
 int charHashLenghtPlusOne = 240;
 int trackCharCount = 0;
-                                    // char: 120
+                                    // char: 120 count.
 std::string charSignature[5] = {    "-2ID9ZCV-9PC2BQB-YAXLXWH-5BJH8SV-JKPU3DK-1YUO2AI-J06Y355-63H5CTH-V7YENBB-V9KYIR4-Z2LFAAZ-USO9K8Y-WM4DOQ1-O0QA3N9-VMW5PNI",
                                     "-9TZ899U-L6GDJNN-SDZVPZK-6KAC1UA-IAU7OXP-2GP8FTR-8G9FV0I-7O9QCPH-O4V5DPX-4C7AWQG-G1QV6U1-6785D8J-99N33WD-FD5ONX2-B8P9SQP",
                                     "-3OX4JRW-PSB54N3-OUD4YU4-OLQQI5R-QUO7HW0-ZUPSAU9-PSXNSEW-6LGQN3K-Z6UYGX3-APOUAUX-BSMYB8O-HOIOLQY-VATA2OA-1WF4LNY-VHTCRHH",
@@ -74,14 +74,15 @@ std::string encryptedString;
 /*
                                          <<<<Value table.>>> 
 
-    a=0  b=1   c=2   d=3   e=4   f=5   g=6   h=7   
-    i=8   j=9   k=10   l=11   m=12   n=13   o=14   p=15
-    q=16   r=17   s=18   t=19   u=20   v=21   w=22   
-    x=23   y=24   z=25   0=26   1=27   2=28   3=29   4=30   5=31   
-    6=32   7=33   8=34   9=35  
+    A=0		B=1		C=2		D=3		E=4		F=5		G=6		H=7   
+    I=8		J=9		K=10	L=11	M=12	N=13	O=14	P=15
+    Q=16	R=17	S=18	T=19	U=20	V=21	W=22
+    X=23	Y=24	Z=25	0=26	1=27	2=28	3=29	4=30   5=31   
+    6=32	7=33	8=34	9=35  
 */
 #pragma endregion 
 
+// Convert our String into an Array
 void StringToArray() {
 
     // We place our input in a string we can use
@@ -99,6 +100,7 @@ void StringToArray() {
     }
 }
 
+// Puts our encrypted data together in a variable "encryptedString"
 void PutEncryptStringsTogether() {
 
     // While i is smaller than the length of our string...
@@ -299,10 +301,12 @@ void PutEncryptStringsTogether() {
     
 }
 
+// Random number generation (for signatures)
 int random(int from, int to) {
     return rand() % (to - from + 1) + from;
 }
 
+// Pick a signature, and add to to the end of our string variable
 void addSignatureToCharString() {
 
     // start random seed
@@ -342,6 +346,7 @@ void addSignatureToCharString() {
     }
 }
 
+// Send the string to A directory
 void SendStringToFile() {
 
     // Create dir
@@ -355,6 +360,7 @@ void SendStringToFile() {
     
 }
 
+// CHECK the encrypted signature, is it valid?
 void checkCharSignature() {
 	
 	int signatureCheckLength = charEncryptData.length();										// get full length of encrypted string, place in signaturechecklength
@@ -398,6 +404,7 @@ void checkCharSignature() {
 
 }
 
+// Place our encrypted string into an array 
 void charEncryptToArray() {
 
 	int signatureCutOff;
@@ -475,6 +482,7 @@ void charEncryptToArray() {
 
 }
 
+// GET our local encrypted string
 void GetCharFromFile() {
 
 	// Create a text string, which is used to output the text file
@@ -495,6 +503,7 @@ void GetCharFromFile() {
 
 }
 
+// Turn our encrypted array into Text
 void ArrayToText() {
 
 	int i = 0;
@@ -677,6 +686,7 @@ void ArrayToText() {
 
 }
 
+// Show our data "finalUserText"
 void DisplayTextAsString() {
 
 	for (int i = 0; i < 20; i++) {
@@ -692,6 +702,7 @@ void DisplayTextAsString() {
 	
 }
 
+// [CHARACTER] Resets
 void charValueResets() {
 
 	// string resets
