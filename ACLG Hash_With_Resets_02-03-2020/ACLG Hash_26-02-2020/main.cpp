@@ -481,7 +481,7 @@ void encryptToArray() {
 
 		// Now we want to place our data in an array. 
 
-		for (int findIndex = 0; findIndex < newEncryptData.length(); findIndex = findIndex + stringLengthPlusOne) {			// prev: 2 = 127 (amount of strings)    3 = 128 (string plus 1)
+		for (int findIndex = 0; findIndex < static_cast<int>(newEncryptData.length()); findIndex = findIndex + stringLengthPlusOne) {			// prev: 2 = 127 (amount of strings)    3 = 128 (string plus 1)
 
 			//cout << "\n\nFor testing: " << newEncryptData.substr(findIndex, stringLengthForEach);
 
@@ -492,6 +492,8 @@ void encryptToArray() {
 			moveUpArray++;
 			trackNumberCount++;
 
+			std::cout << "interval: " << getHashArray[moveUpArray] << std::endl;
+
 		}
 
 		//cout << "\n\n--------------\n\n";
@@ -499,8 +501,9 @@ void encryptToArray() {
 
 		for (int i = 0; i < 9; i++) {
 
-			//cout << getHashArray[i];
-			//cout << ",";
+			cout << getHashArray[i];
+			cout << ",";
+			system("pause");
 		}
 	}
 
