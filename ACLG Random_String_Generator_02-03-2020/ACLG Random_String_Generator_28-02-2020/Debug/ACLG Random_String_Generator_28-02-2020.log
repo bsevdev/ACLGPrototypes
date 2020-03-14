@@ -1,2 +1,4 @@
 ﻿  main.cpp
+C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Random_String_Generator_02-03-2020\ACLG Random_String_Generator_28-02-2020\main.cpp(66,39): warning C4101:  'e': unreferenced local variable
+C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Random_String_Generator_02-03-2020\ACLG Random_String_Generator_28-02-2020\main.cpp(71,35): warning C4101:  'e': unreferenced local variable
   ACLG Random_String_Generator_28-02-2020.vcxproj -> C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Random_String_Generator_02-03-2020\Debug\ACLG Random_String_Generator_28-02-2020.exe

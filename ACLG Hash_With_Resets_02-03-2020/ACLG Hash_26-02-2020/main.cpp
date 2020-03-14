@@ -66,8 +66,8 @@ int option;					// for switch case choice
 int number;					// the number we ask for the user to input
 int newNumber;				// we place the above number in a new variable, and use this for encryption, so we can store the entered number somewhere
 
-int stringLengthForEach = 7999;
-int stringLengthPlusOne = 8000;		// [*****NOTE*****] ---> IF WE CHANGE LENGTHS, WE MUST UPDATE HERE
+const int stringLengthForEach = 7999;
+const int stringLengthPlusOne = 8000;		// [*****NOTE*****] ---> IF WE CHANGE LENGTHS, WE MUST UPDATE HERE
 const int signatureLength = 240;		// WILL CHANGE DUE TO LENTH OF SIGNATURE
 
 //					     
@@ -95,7 +95,7 @@ string Signatures[10] = {	"-VMIGYYE-G9WSR4O-GIYTPYG-JJ40J5W-SU9ONT9-Y8BB1V1-AD9Z
 
 string getHashArray[10] = { "emp","emp", "emp","emp","emp","emp","emp","emp", "emp" };
 
-int userExpAsArray[9] = { NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL };
+int userExpAsArray[9] = { 0,0,0,0,0,0,0,0,0 };
 
 int encryptArray[9] = { 0,0,0,0,0,0,0,0,0 };		// we run our list of numbers in this array, any numbers not used are cut off
 
@@ -458,32 +458,33 @@ void encryptToArray() {
 
 	int signatureCutOff;
 	int holdLength;
-	string newEncryptData;
+	std::string newEncryptData;
 	int findIndex = 0;
 	int moveUpArray = 0;
 
-	// first, we get the length of our string variable
+	// first, we get the length of our std::string variable
 
-	//cout << "Data length: " << encryptData.length(); "\n";
+	std::cout << "Data length: " << encryptData.length(); "\n";
+	system("pause");
 
 	checkSignatureValid();
 
 	if (signatureOK == true) {
 
-		// whatever the length is, we grab the entire string except the last 3 digits (depending on character size of signatures). This will cut off the signature.
+		// whatever the length is, we grab the entire std::string except the last 3 digits (depending on character size of signatures). This will cut off the signature.
 
 		holdLength = encryptData.length();
 		signatureCutOff = holdLength - signatureLength;			// signature is now equal to length minus 3
 
-		//cout << "\nData without Signature: " << encryptData.substr(0, signatureCutOff) << std::endl;
+		//std::cout << "\nData without Signature: " << encryptData.substr(0, signatureCutOff) << std::endl;
 
 		newEncryptData = encryptData.substr(0, signatureCutOff);
 
 		// Now we want to place our data in an array. 
 
-		for (int findIndex = 0; findIndex < static_cast<int>(newEncryptData.length()); findIndex = findIndex + stringLengthPlusOne) {			// prev: 2 = 127 (amount of strings)    3 = 128 (string plus 1)
+		for (int findIndex = 0; findIndex < static_cast<int>(newEncryptData.length()); findIndex = findIndex + stringLengthPlusOne) {			// prev: 2 = 127 (amount of std::strings)    3 = 128 (std::string plus 1)
 
-			//cout << "\n\nFor testing: " << newEncryptData.substr(findIndex, stringLengthForEach);
+			//std::cout << "\n\nFor testing: " << newEncryptData.substr(findIndex, stringLengthForEach);
 
 			// we then store each number into a slot.
 
@@ -496,13 +497,13 @@ void encryptToArray() {
 
 		}
 
-		//cout << "\n\n--------------\n\n";
+		//std::cout << "\n\n--------------\n\n";
 		// Lets print our array and check it works
 
 		for (int i = 0; i < 9; i++) {
 
-			cout << getHashArray[i];
-			cout << ",";
+			std::cout << getHashArray[i];
+			std::cout << ",";
 			system("pause");
 		}
 	}
@@ -512,7 +513,6 @@ void encryptToArray() {
 }
 
 void ArrayToData() {
-
 	// we have our data in an array, now we need to check the data exists in the .exe
 
 	// getHashArray == where our data is stored
@@ -532,6 +532,8 @@ void ArrayToData() {
 			if (getHashArray[i] == hashArray[0]) {
 				userExpAsArray[j] = 0;
 				findHit++;
+				std::cout << "Yes, it hits 0." << std::endl;
+				system("pause");
 			}
 
 			else if (getHashArray[i] == hashArray[1]) {
@@ -588,13 +590,25 @@ void ArrayToData() {
 			++i;
 			--trackNumberCount;
 		}
+
 		catch (int x) {
 
+
 			system("cls");
-			cout << "Encryption ERROR. Error code: " << x << "...(shutting down.)" << "\n";
+			std::cout << "Encryption ERROR. Error code: " << x << "...(shutting down.)" << "\n";
 			this_thread::sleep_for(chrono::seconds(3)); // exit?
 			exit(0);
 		}
+
+
+		std::cout << "Test after encrypt to encrypt placement" << std::endl;
+
+		for (int i = 0; i < 10; i++) {
+			std::cout << userExpAsArray[i];
+			system("pause");
+		}
+
+		system("pause");
 	}
 
 }
@@ -602,7 +616,7 @@ void ArrayToData() {
 void clearUnearnedZeros() {
 
 	// convert our array into a single int
-	stringstream ss;
+	std::stringstream ss;
 
 	// get our array values, and stream to "ss"
 	for (unsigned i = 0; i < sizeof userExpAsArray / sizeof userExpAsArray[0]; ++i)
@@ -613,8 +627,10 @@ void clearUnearnedZeros() {
 	// result store TRUE value
 	ss >> result;
 
-	//cout << "Result is: " << result << "\n";
-	//cout << "Find hit is: " << findHit << "\n";
+	std::cout << "Result is: " << result << "\n";
+
+	system("pause");
+	//std::cout << "Find hit is: " << findHit << "\n";
 	// result has correct value
 
 	//we then perform calculations to remove 0's that we did not earn
@@ -632,37 +648,33 @@ void clearUnearnedZeros() {
 		newResult = result / 10;
 		result = newResult;
 
-		//cout << "New Result Value Each time: " << newResult << "\n";
+		std::cout << "New Result Value Each time: " << newResult << "\n";
 
 	}
 
-	cout << "\n\n\nYour EXP value: " << newResult;
-	cout << "\n\n\n\n";
+	try {
 
+		if (newResult > maxExp) {
+			throw 67;
+		}
+
+	}
+	catch (int x) {
+
+		system("cls");
+		std::cout << "Decryption ERROR. Error code: " << x << "...(shutting down.)" << "\n";
+		std::this_thread::sleep_for(chrono::seconds(3)); // exit?
+		exit(0);
+	}
+
+	std::cout << "\n\n\nYour EXP value(newResult): " << newResult;
 	system("pause");
-
-	//try {
-
-	//	if (newResult == 0) {
-	//		throw 67;
-	//	}
-
-	//}
-	//catch (int x) {
-
-	//	system("cls");
-	//	cout << "Decryption ERROR. Error code: " << x << "...(shutting down.)" << "\n";
-	//	this_thread::sleep_for(chrono::seconds(3)); // exit?
-	//	exit(0);
-	//}
-
-	//cout << "\n\n\nYour EXP value: " << newResult;
-	//cout << "\n\n\n\n";
 
 	// sleep here
 
-	//cout << "\nPress a key to head back..."
+	//std::cout << "\nPress a key to head back..."
 	//system("pause");
+
 }
 
 void resetValues() {

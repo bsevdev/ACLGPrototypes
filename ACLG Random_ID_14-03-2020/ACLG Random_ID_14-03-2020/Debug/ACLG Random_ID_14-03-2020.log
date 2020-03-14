@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Random_ID_14-03-2020\ACLG Random_ID_14-03-2020\Source.cpp(72,39): warning C4101:  'e': unreferenced local variable
+C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Random_ID_14-03-2020\ACLG Random_ID_14-03-2020\Source.cpp(78,35): warning C4101:  'e': unreferenced local variable
+  ACLG Random_ID_14-03-2020.vcxproj -> C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Random_ID_14-03-2020\Debug\ACLG Random_ID_14-03-2020.exe
