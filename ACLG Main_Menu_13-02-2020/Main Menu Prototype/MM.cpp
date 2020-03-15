@@ -7,8 +7,11 @@
 #include <cstdlib>
 #include <thread>
 
+// Add to define
 #define std_con_out GetStdHandle(STD_OUTPUT_HANDLE)	// for adding colours to text
 
+
+// Already added, ignore.
 #define KEY_UP 72		// Key defines & codes
 #define KEY_DOWN 80
 #define KEY_LEFT 75
@@ -19,21 +22,23 @@
 using namespace std;
 
 #pragma region
-bool gameOver = false;
-bool inMainMenu = true;
-bool inOptionMenu = false;
-bool inMiscMenu = false;
-bool inSoundMenu = false;
-bool inPrefMenu = false;
-bool inGraphicsMenu = false;
-bool inHowToPushMenu = false;
-bool inTextOMaticMenu = false;
+//NOT GLOBAL
+bool gameOver = false;					// checks gameOver state
+bool inMainMenu = true;					// triggers when user is on page: Main Menu
+bool inOptionMenu = false;				// triggers when user is on page: Options Menu
+bool inMiscMenu = false;				// triggers when user is on page: Misc Menu
+bool inSoundMenu = false;				// triggers when user is on page: Audio Menu
+bool inPrefMenu = false;				// triggers when user is on page: Preference Menu
+bool inGraphicsMenu = false;			// triggers when user is on page: Graphics Menu
+bool inHowToPushMenu = false;			// triggers when user is on page: "How To Push" Menu
+bool inTextOMaticMenu = false;			// triggers when user is on page: Text-OMatic
 #pragma endregion bools?
 
+// menu max [NOTES] this will changes is there's another option(s) added.
 int endIndex = 5;
 
 #pragma region
-int ResX = 830, ResY = 500, ResXFixed = 0, ResYFixed = 0, PosX = 550, PosY = 300;
+// Handles, global variables
 HWND console = GetConsoleWindow();
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 #pragma endregion Iggy
@@ -51,15 +56,6 @@ int angusLoopCount = 0;
 // our random number to print
 int oneOrZero;
 #pragma endregion Carry from Text-O-Matic
-
-/*
-Versions:
-The left most number is called the major version
-The middle is called the minor version
-The right most is called the revision, point release or subminor release
-*/
-
-// set up string array, use index to decide where you are in the list
 
 // current option in the above (bool) menus
 int option = 0;
@@ -98,14 +94,13 @@ void setcolor(concol textcol, concol backcol)
 	SetConsoleTextAttribute(std_con_out, wAttributes);
 }
 
-// moving text to the middle
+// moving text t the middle
 void moveToMiddle() {
 	
 	cout << "\n\n\n\n\n\n\n\n\n";
 }
 
 #pragma region
-//							0			1			   2			          3					4				5
 string mainMenuItems[6] = { "Play",		"Tutorial",		"How To Push",		"Name Change",		"Options",		"Quit", };	// list for main menu
 string optionsMenuItems[5] = { "Graphics",	"Preferences" , "Audio" , "Misc", "Back"};										// list for options menu
 string miscMenuItems[3] = { "Text-O-Matic", "Credits" , "Back" };															// list of misc menu
@@ -117,6 +112,8 @@ string textOMaticItems[1] = { "< Back" };																					// textOMatic with
 string titleItem[1] = {""};		// changes value depending on what title we are on.
 #pragma endregion Arrays 
 
+
+//NOT GLOBAL
 // music booleans (music)
 bool muteMusicEnabled = true;
 bool muteSoundEffectsEnabled = true;
@@ -130,6 +127,7 @@ bool screenSizeEnabled = true;
 bool screenBufferEnabled = true;
 
 #pragma region 
+// Function for displaying all credits. To be edited.
 void rollCredits() {
 	
 	system("cls");
@@ -175,6 +173,7 @@ void rollCredits() {
 #pragma endregion Credits 
 
 #pragma region 
+// Displays our game menu. 
 void MainMenu() {
 
 	// ONCE WE FIND NEW COLOURS, REMOVE
@@ -365,6 +364,7 @@ void MainMenu() {
 #pragma endregion Main Menu 
 
 #pragma region
+// Displays our option menu.
 void OptionsMenu() {
 
 	moveToMiddle();
@@ -522,6 +522,7 @@ void OptionsMenu() {
 #pragma endregion Options Menu
 
 #pragma region
+// Displays our Misc menu.
 void miscMenu() {
 
 	moveToMiddle();
@@ -596,6 +597,7 @@ void miscMenu() {
 #pragma endregion Misc Menu
 
 #pragma region 
+// Displays our Audio menu.
 void soundMenu() {
 	moveToMiddle();
 
@@ -693,6 +695,7 @@ void soundMenu() {
 #pragma endregion Sound Menu
 
 #pragma region
+// Displays our Preference menu.
 void prefMenu() {
 	moveToMiddle();
 
@@ -789,6 +792,7 @@ void prefMenu() {
 #pragma endregion Preferences Menu 
 
 #pragma region
+// Displays our Graphics menu.
 void graphicsMenu() {
 	moveToMiddle();
 
@@ -884,6 +888,7 @@ void graphicsMenu() {
 }
 #pragma endregion Graphics Menu
 
+// IGNORE
 void hidecursor()
 {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -894,6 +899,7 @@ void hidecursor()
 }
 
 #pragma region 
+// Displays How to push instructions and BACK
 void displayBackFromHowToPush() {
 
 	system("cls");
@@ -950,31 +956,20 @@ void displayBackFromHowToPush() {
 }
 #pragma endregion HowToPushMenu 
 
-
-void setDefConsoleSize() {
-
-	// default size of 830 x 500
-	MoveWindow(console, PosX, PosY, ResX, ResY, TRUE);
-}
-
+// Pushes our text
 void pushDown() {
 	cout << "\n\n\n\n\n\n\n\n\n\n\n\n";
 }
 
 #pragma region 
+// IGNORE
 int random(int from, int to) {
 	return rand() % (to - from + 1) + from;
 }
 #pragma endregion Randomness
 
-#pragma region
-void startPause() {
-	this_thread::sleep_for(chrono::seconds(1));
-}
-#pragma endregion Pause
-
 #pragma region 
-// first function for Textomatic
+// [FIRST] function for Textomatic
 void runTextOMatic() {
 
 	system("cls");
@@ -1034,12 +1029,11 @@ void runTextOMatic() {
 	// 8. This will continue to loop until the user hits a "key"
 
 	//animation();
-
 }
 #pragma endregion Run Text-O-Matic
 
 #pragma region
-// second function for textomatic
+// [SECOND] function for textomatic
 void AngusTypes() {
 
 	srand((unsigned int)time(0));
@@ -1571,7 +1565,7 @@ void AngusTypes() {
 #pragma endregion Angus Typing Animation
 
 #pragma region 
-// third function for textomatic
+// [THIRD] function for textomatic
 void moveTitleShowBack() {
 
 	// set up < Back button
@@ -1590,16 +1584,11 @@ void moveTitleShowBack() {
 
 int main() {
 
-	#pragma region Screen Res
-	setDefConsoleSize();
-	system("screenBuffer.bat");
-	hidecursor();
-	#pragma endregion Screen Resolution 
-
 	// we set main menu as true and load as this was the request
+	// menu set to true by default.
 	if (inMainMenu == true) {
 		inOptionMenu = false;
-		MainMenu();
+		MainMenu();				// call menu. 
 	}
 
 	do {
@@ -1622,7 +1611,7 @@ int main() {
 
 				}
 				
-				// moves up in every named menu list
+				// moves UP in every named menu list
 				else if (inMainMenu == true){
 					system("cls");
 					--option;
@@ -1670,7 +1659,7 @@ int main() {
 
 				}
 
-				// go down on each menu list mentioned
+				// go DOWN on each menu list mentioned
 				else if (inMainMenu == true) {
 					system("cls");
 					++option;
@@ -1899,7 +1888,7 @@ int main() {
 					inMiscMenu = false;
 					inTextOMaticMenu = true;
 					runTextOMatic();
-					startPause();
+					this_thread::sleep_for(chrono::seconds(1));
 					AngusTypes();
 					moveTitleShowBack();
 					//option = 0;		// reset option
