@@ -72,12 +72,14 @@ void generateRandom() {
 		{
 			system("cls");
 			std::cout << "Bad input: std::invalid_argument thrown" << '\n';
+			std::cout << "Invalids: " << &e << std::endl;
 		}
 
 		catch (std::out_of_range const& e)
 		{
 			system("cls");
 			std::cout << "Integer overflow: std::out_of_range thrown" << '\n';
+			std::cout << "Invalids: " << &e << std::endl;
 		}
 
 		system("pause");

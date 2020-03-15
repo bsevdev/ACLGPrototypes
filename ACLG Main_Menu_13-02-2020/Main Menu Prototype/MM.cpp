@@ -39,7 +39,6 @@ int endIndex = 5;
 
 #pragma region
 // Handles, global variables
-HWND console = GetConsoleWindow();
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 #pragma endregion Iggy
 
@@ -126,7 +125,6 @@ bool alertsEnabled = true;
 bool screenSizeEnabled = true;
 bool screenBufferEnabled = true;
 
-#pragma region 
 // Function for displaying all credits. To be edited.
 void rollCredits() {
 	
@@ -170,11 +168,9 @@ void rollCredits() {
 	std::this_thread::sleep_for(chrono::seconds(1));
 
 }
-#pragma endregion Credits 
 
-#pragma region 
 // Displays our game menu. 
-void MainMenu() {
+void MainMenuList() {
 
 	// ONCE WE FIND NEW COLOURS, REMOVE
 	setcolor(white, black);
@@ -361,9 +357,7 @@ void MainMenu() {
 
 	//cout << option;
 }
-#pragma endregion Main Menu 
 
-#pragma region
 // Displays our option menu.
 void OptionsMenu() {
 
@@ -519,9 +513,7 @@ void OptionsMenu() {
 	}
 	
 }
-#pragma endregion Options Menu
 
-#pragma region
 // Displays our Misc menu.
 void miscMenu() {
 
@@ -594,9 +586,7 @@ void miscMenu() {
 
 	
 }
-#pragma endregion Misc Menu
 
-#pragma region 
 // Displays our Audio menu.
 void soundMenu() {
 	moveToMiddle();
@@ -692,9 +682,7 @@ void soundMenu() {
 	}
 	
 }
-#pragma endregion Sound Menu
 
-#pragma region
 // Displays our Preference menu.
 void prefMenu() {
 	moveToMiddle();
@@ -789,9 +777,7 @@ void prefMenu() {
 		setcolor(white, black);
 	}
 }
-#pragma endregion Preferences Menu 
 
-#pragma region
 // Displays our Graphics menu.
 void graphicsMenu() {
 	moveToMiddle();
@@ -886,7 +872,6 @@ void graphicsMenu() {
 		setcolor(white, black);
 	}
 }
-#pragma endregion Graphics Menu
 
 // IGNORE
 void hidecursor()
@@ -898,7 +883,6 @@ void hidecursor()
 	SetConsoleCursorInfo(consoleHandle, &info);
 }
 
-#pragma region 
 // Displays How to push instructions and BACK
 void displayBackFromHowToPush() {
 
@@ -954,21 +938,18 @@ void displayBackFromHowToPush() {
 	}
 
 }
-#pragma endregion HowToPushMenu 
 
 // Pushes our text
 void pushDown() {
+
 	cout << "\n\n\n\n\n\n\n\n\n\n\n\n";
 }
 
-#pragma region 
 // IGNORE
 int random(int from, int to) {
 	return rand() % (to - from + 1) + from;
 }
-#pragma endregion Randomness
 
-#pragma region 
 // [FIRST] function for Textomatic
 void runTextOMatic() {
 
@@ -1030,9 +1011,7 @@ void runTextOMatic() {
 
 	//animation();
 }
-#pragma endregion Run Text-O-Matic
 
-#pragma region
 // [SECOND] function for textomatic
 void AngusTypes() {
 
@@ -1562,9 +1541,7 @@ void AngusTypes() {
 
 
 }
-#pragma endregion Angus Typing Animation
 
-#pragma region 
 // [THIRD] function for textomatic
 void moveTitleShowBack() {
 
@@ -1580,15 +1557,15 @@ void moveTitleShowBack() {
 	}
 
 }
-#pragma endregion Display Back Button
 
-int main() {
+// This function carries out usage of the Main Menu
+void MM(){
 
 	// we set main menu as true and load as this was the request
 	// menu set to true by default.
 	if (inMainMenu == true) {
 		inOptionMenu = false;
-		MainMenu();				// call menu. 
+		MainMenuList();				// call menu. 
 	}
 
 	do {
@@ -1601,21 +1578,21 @@ int main() {
 
 			// menu "hit" variables#
 			// (endHit) main = 5, options = 3
-			
+
 			switch ((c = _getch())) {
 			case KEY_UP:
 
-				#pragma region 
+#pragma region 
 				// option does nothing if it is smaller than 0
 				if (option <= 0) {
 
 				}
-				
+
 				// moves UP in every named menu list
-				else if (inMainMenu == true){
+				else if (inMainMenu == true) {
 					system("cls");
 					--option;
-					MainMenu();
+					MainMenuList();
 				}
 
 				else if (inOptionMenu == true) {
@@ -1648,12 +1625,12 @@ int main() {
 					graphicsMenu();
 				}
 
-				#pragma endregion Key Up Actions 
+#pragma endregion Key Up Actions 
 
 				break;
 			case KEY_DOWN:
 
-				#pragma region 
+#pragma region 
 				// option is never larger than the last index
 				if (option >= endIndex) {
 
@@ -1663,7 +1640,7 @@ int main() {
 				else if (inMainMenu == true) {
 					system("cls");
 					++option;
-					MainMenu();
+					MainMenuList();
 				}
 
 				else if (inOptionMenu == true) {
@@ -1695,22 +1672,22 @@ int main() {
 					++option;
 					graphicsMenu();
 				}
-				#pragma endregion Key Down Actions
+#pragma endregion Key Down Actions
 
 				break;
 
 			case KEY_LEFT:
 
-				#pragma region 
+#pragma region 
 				// head BACK to main menu
 				if (option == 4 && inOptionMenu == true) {
-					
+
 					system("cls");
 					option = 0;	// reset pos
 					endIndex = 5;
 					inOptionMenu = false;
 					inMainMenu = true;
-					MainMenu();
+					MainMenuList();
 				}
 
 				// head BACK TO [OPTIONS] FROM MISC
@@ -1761,7 +1738,7 @@ int main() {
 					endIndex = 5;
 					inMainMenu = true;
 					inHowToPushMenu = false;
-					MainMenu();
+					MainMenuList();
 				}
 
 				// head BACK TO [MISC] FROM TEXT
@@ -1773,19 +1750,19 @@ int main() {
 					inTextOMaticMenu = false;
 					miscMenu();
 				}
-			#pragma endregion Key Left Actions 
+#pragma endregion Key Left Actions 
 
 				break;
 			case KEY_RIGHT:
 
-				#pragma region 
+#pragma region 
 				// LOAD OPTIONS MENU
 				if (option == 4 && inMainMenu == true) {
 					// load options menu
 
 					inOptionMenu = true;
 					inMainMenu = false;
-					
+
 					system("cls");
 					option = 0; // options is now 14
 					endIndex = 4;	// how far we can go down on options menu
@@ -1862,15 +1839,15 @@ int main() {
 
 				}
 
-			#pragma endregion Key Right Actions
+#pragma endregion Key Right Actions
 
 				break;
 			case KEY_ENTER:
 
-				#pragma region 
+#pragma region 
 				// EXIT game
 				if (option == 5 && inMainMenu == true) {
-					return 0;
+					exit(0);
 				}
 
 				// PLAYS THE GAME
@@ -1904,7 +1881,7 @@ int main() {
 
 				// MUTES MUSIC
 				else if (option == 0 && inSoundMenu == true) {
-					system("cls"); 
+					system("cls");
 
 					// if it's off, turn it on, if it's on, turn it off
 					if (muteMusicEnabled == true) {
@@ -1997,19 +1974,19 @@ int main() {
 
 					graphicsMenu();	// show sound menu
 				}
-			#pragma endregion Key Enter Actions
-				
-				break;
-			case KEY_ESCAPE: 
+#pragma endregion Key Enter Actions
 
-				#pragma region 
+				break;
+			case KEY_ESCAPE:
+
+#pragma region 
 				/*
-				MainMenu 
+				MainMenu
 				OptionMenu
-				MiscMenu 
+				MiscMenu
 				SoundMenu
-				PrefMenu 
-				GraphicsMenu 
+				PrefMenu
+				GraphicsMenu
 				*/
 
 				// From Graphics to Options Menu
@@ -2049,7 +2026,7 @@ int main() {
 				else if (inMiscMenu == true) {
 					std::this_thread::sleep_for(chrono::milliseconds(100));
 					system("cls");
-					option = 3;	
+					option = 3;
 					endIndex = 4;
 					inOptionMenu = true;
 					inMiscMenu = false;
@@ -2060,11 +2037,11 @@ int main() {
 				else if (inOptionMenu == true) {
 					std::this_thread::sleep_for(chrono::milliseconds(100));
 					system("cls");
-					option = 0;	
+					option = 0;
 					endIndex = 5;
 					inOptionMenu = false;
 					inMainMenu = true;
-					MainMenu();
+					MainMenuList();
 				}
 
 				// From How To Push to Main Menu
@@ -2075,9 +2052,9 @@ int main() {
 					endIndex = 5;
 					inHowToPushMenu = false;
 					inMainMenu = true;
-					MainMenu();
+					MainMenuList();
 				}
-				
+
 				else if (inTextOMaticMenu == true) {
 					std::this_thread::sleep_for(chrono::milliseconds(100));
 					system("cls");
@@ -2087,19 +2064,25 @@ int main() {
 					inTextOMaticMenu = false;
 					miscMenu();
 				}
-				
-				#pragma endregion Esc Actions 
+
+#pragma endregion Esc Actions 
 
 				break;
 			default:	// default input not registered, does nothing 
 				break;
 
-				
+
 			}
 
 		}
 	} while (gameOver == false);		// [for testing] , we loop until game is over
 
+}
+
+int main() {
+
+	
+	MM();
 	system("pause");
 	return 0;
 }
