@@ -20,9 +20,10 @@ using namespace std;
 
 bool gameOver = false;
 bool updateDone = false;
+bool setGameFeedPos = false;
 
 				  // 0      1       2        3      4        5       6       7        8         9
-string text[10] = { "",		"",		"",		"",		"",		"",		"",		"",		  "",		""};
+string text[22] = { "","","","", "","", "","", "","", "","", "","", "","", "","", "","", "","", };
 string cmd = "";
 string typedYesString = "You typed yes";
 string typedNoString = "You typed no";
@@ -35,6 +36,8 @@ string skillText1 = "We're testing text...";
 string skillText2 = "We're still testing text...";
 string skillText3 = "Nearly there...";
 string skillText4 = "Done."; // <--- windows alert here.
+
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 
 int iSecret;
@@ -65,7 +68,7 @@ void updateGameFeed() {
 		else {
 			text[0] = "";
 		}
-	#pragma endregion 
+		#pragma endregion 
 
 		#pragma region Index 1 Look
 		if (text[1] == "") {
@@ -77,7 +80,7 @@ void updateGameFeed() {
 			
 			text[0] = text[1];
 		}
-	#pragma endregion 
+		#pragma endregion 
 
 		#pragma region Index 2 Look
 		if (text[2] == "") {
@@ -89,7 +92,7 @@ void updateGameFeed() {
 
 			text[1] = text[2];
 		}
-#pragma endregion 
+		#pragma endregion 
 
 		#pragma region Index 3 Look
 		if (text[3] == "") {
@@ -101,7 +104,7 @@ void updateGameFeed() {
 
 			text[2] = text[3];
 		}
-#pragma endregion  
+		#pragma endregion  
 	
 		#pragma region Index 4 Look
 			if (text[4] == "") {
@@ -113,7 +116,7 @@ void updateGameFeed() {
 
 				text[3] = text[4];
 			}
-	#pragma endregion  
+		#pragma endregion  
 	
 		#pragma region Index 5 Look
 		if (text[5] == "") {
@@ -125,7 +128,7 @@ void updateGameFeed() {
 
 			text[4] = text[5];
 		}
-#pragma endregion 
+		#pragma endregion 
 	
 		#pragma region Index 6 Look
 		if (text[6] == "") {
@@ -137,7 +140,7 @@ void updateGameFeed() {
 
 			text[5] = text[6];
 		}
-#pragma endregion 
+		#pragma endregion 
 			
 		#pragma region Index 7 Look
 		if (text[7] == "") {
@@ -149,7 +152,7 @@ void updateGameFeed() {
 
 			text[6] = text[7];
 		}
-#pragma endregion  
+		#pragma endregion  
 	
 		#pragma region Index 8 Look
 		if (text[8] == "") {
@@ -161,20 +164,164 @@ void updateGameFeed() {
 
 			text[7] = text[8];
 		}
+		#pragma endregion 
+
+		#pragma region Index 9 Look
+		if (text[9] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[8] = text[9];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[10] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[9] = text[10];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[11] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[10] = text[11];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[12] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[11] = text[12];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[13] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[12] = text[13];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[14] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[13] = text[14];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[15] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[14] = text[15];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[16] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[15] = text[16];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[17] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[16] = text[17];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[18] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[17] = text[18];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[19] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[18] = text[19];
+		}
+#pragma endregion 
+		
+		#pragma region Index 9 Look
+		if (text[20] == "") {
+
+			// do nothing
+		}
+
+		else {
+
+			text[19] = text[20];
+		}
 #pragma endregion 
 	
 		#pragma region Index 9 Look
-			if (text[9] == "") {
+			if (text[21] == "") {
 
-				text[9] = lastString;
+				text[21] = lastString;
 			}
 
 			else {
 
-				text[8] = text[9];
-				text[9] = lastString;
+				text[20] = text[21];
+				text[21] = lastString;
 			}
-	#pragma endregion 
+		#pragma endregion 
 
 		lastString = "";
 		updateDone = true;
@@ -187,9 +334,17 @@ void updateGameFeed() {
 // will DISPLAY the Game Feed
 void displayGameFeed() {
 
+	if (INVALID_HANDLE_VALUE != hConsole)
+	{
+		//         pos = {across, up/down}
+		COORD pos = { 0, 35 };
+		SetConsoleCursorPosition(hConsole, pos);
+
+	}
+
 	// displays the current array
-	for (int i = 0; i < 10; i++) {
-		
+	for (int i = 0; i < 22; i++) {
+
 		cout << text[i] << '\n';
 	}
 
@@ -228,13 +383,17 @@ void TipGenerator() {
 
 // shows "command" section NOTE: This will be the UI function
 void displayUI() {
-	cout << "-------------------------------------------------------------------------------------";
-	cout << "-------------\n" << "command:  \n" << "-----------------------------------------------------";
-	cout << "---------------------------------------------" << endl;
-}
+	
+	if (INVALID_HANDLE_VALUE != hConsole)
+	{
+		//         pos = {across, up/down}
+		COORD pos = { 0, 25 };
+		SetConsoleCursorPosition(hConsole, pos);
+		cout << "-------------------------------------------------------------------------------------";
+		cout << "-------------\n";
+		cout << "command:  ";
 
-void messagePrompt() {
-
+	}
 }
 
 // Skill Mechanic Functionality
@@ -314,40 +473,21 @@ void GameFeedInput() {
 
 }
 
-// FUNCTION FOR USE: Checks for any spaces in text
-//void checkForSpaces() {
-//
-//	// counts any spaces
-//	int count = 0;
-//
-//	for (int i = 0; i < cmd.size(); ++i) {
-//		if (cmd[i] == ' ') {
-//			++count;
-//		}
-//	}
-//
-//	// checks spaces 
-//	if (count > 0) {
-//		// dso something
-//	}
-//
-//}
-
 int main() {
+
+	system("mode 100,28");
 
 	// begin random seed
 	unsigned srand((int)time(NULL));
 
-
-	//string text = "This is my line mate";
+	pushSpace();
 
 	while (gameOver == false) {
-		
+
 		pushSpace();
 		displayGameFeed();
 		displayUI();
 
-		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 		if (INVALID_HANDLE_VALUE != hConsole)
 		{

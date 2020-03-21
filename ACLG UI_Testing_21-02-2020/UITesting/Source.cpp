@@ -6,62 +6,31 @@
 
 using namespace std;
 
-// <<<<<<<<<<<<< TDL >>>>>>>>>>>>>
-// why doesn't screen res change??
-// consider ncurses?
-
 // Tip: Move cursor before printing text
 
-#pragma region
-HWND console = GetConsoleWindow();
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-int ResX = 8300, ResY = 500, ResXFixed = 0, ResYFixed = 0, PosX = 550, PosY = 300;
 
-
-void setDefConsoleSize() {
-
-	// default size of 830 x 500
-	MoveWindow(console, PosX, PosY, ResX, ResY, TRUE);
-}
-#pragma endregion Screen Stuff
-
+// displays bars going across
 const string drawCommandArea[1][2] = {	"----------------------------------------------------------------------------------------------------",
 										"----------------------------------------------------------------------------------------------------"};
 
+// displays bars going downwards
 const string drawExtendedCommandArea[1][28] = {	"|","|", "|", "|", "|", "|", "|", "|", "|", 
 												"|", "|", "|", "|", "|", "|", "|", "|","|",
 												"|", "|", "|", "|", "|", "|", "|", "|", "|",	
-												 "|",};
+												 "|",
+};
 
-// will print the drawCommandArea
-void displayCommandArea() {
-	
-	cout << "\n\n\n\n\n\n\n\n\n\n";         // <--- for moving up and down
-	cout << "\n\n\n\n\n\n\n\n\n\n";
-	cout << "\n\n\n\n\n\n\n";
-
-	for (int i = 0; i < 2; i++) {
-
-		// cout << "         ";             // <--- use this area for moving the map
-		cout << "\n";
-
-		for (int j = 0; j < 1; j++) {
-			cout << drawCommandArea[j][i];
-		}
-
-		cout << '\n';
-	}
-}
-
-void commandLineUI() {
+// This function prints a long line across the screen
+void CommandLineUI() {
 	cout << "\n\n\n\n\n\n\n\n\n\n";         // <--- for moving up and down
 	cout << "\n\n\n\n\n\n\n\n\n\n";
 	cout << "\n\n\n\n\n";
 	cout << "----------------------------------------------------------------------------------------------------";
-	//cout << "____________________________________________________________________________________________________";
 }
 
-void commandLineUIForExtended() {
+// Used with DisplayExtendedCommandArea() for full GAME UI
+void UIForExtended() {
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
@@ -70,11 +39,10 @@ void commandLineUIForExtended() {
 		cout << "-----------------------------------------------------------------";
 
 	}
-	//cout << "----------------------------------------------------------------------------------------------------";
-	//cout << "____________________________________________________________________________________________________";
 }
 
-void predictionSpace() {
+// Predictive text for GAME
+void PredictionText() {
 
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
@@ -87,7 +55,8 @@ void predictionSpace() {
 
 }
 
-void commandLineUIForSuggestion() {
+// Displays cut-off version of CommandLineUI();	
+void UIForSuggestion() {
 
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
@@ -97,15 +66,10 @@ void commandLineUIForSuggestion() {
 		cout << "-----------------------------------------------------------------";
 
 	}
-
-	
-	
-	//cout << "----------------------------------------------------------------------------------------------------";
-	//cout << "____________________________________________________________________________________________________";
 }
 
 // displays the last Pipe character at the bottom of the screen
-void lastPipe() {
+void LastPipe() {
 
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
@@ -117,12 +81,12 @@ void lastPipe() {
 		cout << "								|";
 
 	}
-
 }
 
-void displayExtendedCommandArea() {
+// This function will display FULL Ui that includes area for skills
+void DisplayExtendedCommandArea() {
 
-	commandLineUIForExtended();
+	UIForExtended();
 
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
@@ -140,15 +104,13 @@ void displayExtendedCommandArea() {
 				cout << drawExtendedCommandArea[i][j];
 				cout << "\n";
 			}
-
 		}
-
 	}
 }
 
-void displaySkillsTitle() {
+void DisplaySkillsTitle() {
 
-	// Display Intelligence Skill
+	// Display Skill Title
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
@@ -160,7 +122,7 @@ void displaySkillsTitle() {
 
 	}
 
-	// Display Intelligence Skill
+	// Display Skill Line
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
@@ -173,8 +135,7 @@ void displaySkillsTitle() {
 	}
 }
 
-void displayIntelligence() {
-#pragma region Intelligence Skills
+void DisplayIntelligence() {
 	// Display Intelligence Skill
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
@@ -222,12 +183,10 @@ void displayIntelligence() {
 		cout << "-----------------------------";
 
 	}
-#pragma endregion 
-}
+}	  
 
-void displayAttacking() {
+void DisplayAttacking() {
 
-#pragma region Attack Skill
 
 	// Display Attack level
 	if (INVALID_HANDLE_VALUE != hConsole)
@@ -276,11 +235,9 @@ void displayAttacking() {
 		cout << "-----------------------------";
 
 	}
-#pragma endregion 
 }
 
-void displayNetworking() {
-#pragma region Networking Skill
+void DisplayNetworking() {
 
 	// Display Networking Level
 	if (INVALID_HANDLE_VALUE != hConsole)
@@ -329,11 +286,9 @@ void displayNetworking() {
 		cout << "-----------------------------";
 
 	}
-#pragma endregion 
 }
  
-void displaySecurity() {
-#pragma region Security Skill 
+void DisplaySecurity() {
 
 	// Display Security Level
 	if (INVALID_HANDLE_VALUE != hConsole)
@@ -382,12 +337,10 @@ void displaySecurity() {
 		cout << "-----------------------------";
 
 	}
-#pragma endregion 
 
 }
 
-void displayVul() {
-#pragma region Vulnerability Skill
+void DisplayVul() {
 
 	// Display Vulnerability Level
 	if (INVALID_HANDLE_VALUE != hConsole)
@@ -434,13 +387,10 @@ void displayVul() {
 		SetConsoleCursorPosition(hConsole, pos);
 
 		cout << "-----------------------------";
-
 	}
-#pragma endregion 
 }
 
-void displayFunctionality() {
-#pragma region Functionality Skill
+void DisplayFunctionality() {
 
 	// Display Functionality Level
 	if (INVALID_HANDLE_VALUE != hConsole)
@@ -477,36 +427,33 @@ void displayFunctionality() {
 		cout << "Remaining XP: 0";
 
 	}
-#pragma endregion 
 }
 
 int main() {
 
-	#pragma region
-	setDefConsoleSize();
-	system("screenBuffer.bat");
-	#pragma endregion 
+	system("mode 100, 28");
 
 	string input;
 
-	//commandLineUI();
-	predictionSpace();
-	commandLineUIForSuggestion();
-	displayExtendedCommandArea();
-	lastPipe();
-	displaySkillsTitle();
-	//displayIntelligence();
-	displayAttacking();
-	displayNetworking();
-	displaySecurity();
-	displayVul();
-	displayFunctionality();
+	//CommandLineUI();					// WILL BE USED AT START OF TUTORIAL (MINUS LastPipe())
+	PredictionText();					// IGNORE OF TUTOIRAL 
+	UIForSuggestion();				// IGNORE FOR TUTORIAL
+	DisplayExtendedCommandArea();		// When introducing skills, use this + LastPipe()
+	LastPipe();						// LastPipe. 
+
+
+	//DisplaySkillsTitle();
+	//DisplayAttacking();
+	//DisplayNetworking();
+	//DisplaySecurity();
+	//DisplayVul();
+	//DisplayFunctionality();
 	
 
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
-		COORD pos = { 1, 24 };
+		COORD pos = { 1, 24 };		// tutorial = 1,26.   GAME = 1,24
 		SetConsoleCursorPosition(hConsole, pos);
 		cout << "C:\\Some\\Shitty\\User> ";
 		getline(cin, input);		// user input
