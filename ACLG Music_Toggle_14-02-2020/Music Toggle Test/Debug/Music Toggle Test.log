@@ -9,5 +9,4 @@ C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Music_Toggle_14-02-2020\Mus
 C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Music_Toggle_14-02-2020\Music Toggle Test\audioTest.cpp(85,35): warning C4018:  '<': signed/unsigned mismatch
   Generating Code...
 C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Music_Toggle_14-02-2020\Music Toggle Test\audioTest.cpp(86,23): warning C4244:  '=': conversion from 'float' to 'short', possible loss of data
-  LINK : C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Music_Toggle_14-02-2020\Debug\Music Toggle Test.exe not found or not built by the last incremental link; performing full link
   Music Toggle Test.vcxproj -> C:\Users\Blake\Documents\GitHub\aclg-prototypes\ACLG Music_Toggle_14-02-2020\Debug\Music Toggle Test.exe
