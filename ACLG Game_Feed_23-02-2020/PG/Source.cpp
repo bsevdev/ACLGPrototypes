@@ -328,7 +328,6 @@ void updateGameFeed() {
 		
 	}
 	
-
 }
 
 // will DISPLAY the Game Feed
@@ -347,7 +346,6 @@ void displayGameFeed() {
 
 		cout << text[i] << '\n';
 	}
-
 }
 
 // will GENERATE RANDOM NUMBER for hints (uses updateGameFeed())
