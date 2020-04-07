@@ -39,6 +39,7 @@ string skillText4 = "Done."; // <--- windows alert here.
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
+int gameFeedPosition = 3;
 int iSecret;
 
 void pushSpace() {
@@ -177,7 +178,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 10 Look
 		if (text[10] == "") {
 
 			// do nothing
@@ -189,7 +190,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 11 Look
 		if (text[11] == "") {
 
 			// do nothing
@@ -201,7 +202,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 12 Look
 		if (text[12] == "") {
 
 			// do nothing
@@ -213,7 +214,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 13 Look
 		if (text[13] == "") {
 
 			// do nothing
@@ -225,7 +226,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 14 Look
 		if (text[14] == "") {
 
 			// do nothing
@@ -237,7 +238,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 15 Look
 		if (text[15] == "") {
 
 			// do nothing
@@ -249,7 +250,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 16 Look
 		if (text[16] == "") {
 
 			// do nothing
@@ -261,7 +262,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 17 Look
 		if (text[17] == "") {
 
 			// do nothing
@@ -273,7 +274,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 18 Look
 		if (text[18] == "") {
 
 			// do nothing
@@ -285,7 +286,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 19 Look
 		if (text[19] == "") {
 
 			// do nothing
@@ -297,7 +298,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 		
-		#pragma region Index 9 Look
+		#pragma region Index 20 Look
 		if (text[20] == "") {
 
 			// do nothing
@@ -309,7 +310,7 @@ void updateGameFeed() {
 		}
 #pragma endregion 
 	
-		#pragma region Index 9 Look
+		#pragma region Index 21 Look
 			if (text[21] == "") {
 
 				text[21] = lastString;
@@ -335,14 +336,12 @@ void displayGameFeed() {
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
-		COORD pos = { 0, 35 };
+		COORD pos = { 0, gameFeedPosition };
 		SetConsoleCursorPosition(hConsole, pos);
-
 	}
 
 	// displays the current array
 	for (int i = 0; i < 22; i++) {
-
 		cout << text[i] << '\n';
 	}
 }
