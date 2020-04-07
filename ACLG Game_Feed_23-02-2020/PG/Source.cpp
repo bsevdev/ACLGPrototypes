@@ -39,7 +39,6 @@ string skillText4 = "Done."; // <--- windows alert here.
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-
 int iSecret;
 
 void pushSpace() {
