@@ -6,31 +6,20 @@
 #include <thread>
 #include <cstring>
 
-// only throw prompt is window is closed
-// disable console disable highlight
-// int to LPCTSTR
-// music loop -- toggle on/off							[DONE]
-// tidy up code
-// move over to LIVE game planning
-// move to LIVE
-// gameplay planning
-
-
 using namespace std;
 
-bool gameOver = false;
-bool updateDone = false;
-bool setGameFeedPos = false;
+bool gameOver = false;			// for testing
+bool updateDone = false;		// used for updating updateGameFeed func
 
 				  // 0      1       2        3      4        5       6       7        8         9
-string text[22] = { "","","","", "","", "","", "","", "","", "","", "","", "","", "","", "","", };
-string cmd = "";
-string typedYesString = "You typed yes";
-string typedNoString = "You typed no";
-string lastString = "";
-string badInput = "That is not a command!";
+string text[22] = { "","","","", "","", "","", "","", "","", "","", "","", "","", "","", "","", };		// game feed array
+string cmd = "";																						// user command input
+string typedYesString = "You typed yes";																
+string typedNoString = "You typed no";																	// test strings
+string lastString = "";																					// used to empty string
+string badInput = "That is not a command!";																// bad command.
 string hintString = "[TIP]: Try growing up a little bit, it helps.";
-string hintString2 = "[TIP]: Type \"stats\" to display your basic player statistics.";
+string hintString2 = "[TIP]: Type \"stats\" to display your basic player statistics.";					// tip strings
 //--------------
 string skillText1 = "We're testing text...";
 string skillText2 = "We're still testing text...";
@@ -39,9 +28,10 @@ string skillText4 = "Done."; // <--- windows alert here.
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-int gameFeedPosition = 3;
-int iSecret;
+int gameFeedPosition = 3;			// position of where game feed starts, = 3 for moode 100,28
+int iSecret;						// holds random number for tips.
 
+// push text..
 void pushSpace() {
 	
 	for (int i = 0; i < 26; i++) {
@@ -57,6 +47,11 @@ void updateGameFeed() {
 	updateDone = false;
 
 	while (updateDone == false) {
+
+		/*
+			FOLLOW PROCEDURE BELOW TO ADD ADDITIONAL SPACES IN GAME FEED. 
+			MAKE SURE TO + ARRAY SIZE
+		*/
 		
 		#pragma region Index 0 Look
 		if (text[0] == "")
@@ -324,7 +319,8 @@ void updateGameFeed() {
 		#pragma endregion 
 
 		lastString = "";
-		updateDone = true;
+
+		updateDone = true;		// set to TRUE when done.
 		
 	}
 	
@@ -332,6 +328,8 @@ void updateGameFeed() {
 
 // will DISPLAY the Game Feed
 void displayGameFeed() {
+
+	// This function will display the entire game feed array. 
 
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
@@ -374,7 +372,6 @@ void TipGenerator() {
 	else {
 	
 	}
-	
 }
 
 // shows "command" section NOTE: This will be the UI function
@@ -462,11 +459,7 @@ void GameFeedInput() {
 		// [**************IMPLEMENT RANDOM ERROR MESSAGES**************]
 		lastString = badInput;
 		updateGameFeed();
-		
 	}
-
-	// Switch case implementation
-
 }
 
 int main() {
@@ -480,8 +473,13 @@ int main() {
 
 	while (gameOver == false) {
 
+		// push text down (mainly for UI)
 		pushSpace();
+
+		// prints gameFeed
 		displayGameFeed();
+
+		// display some UI
 		displayUI();
 
 

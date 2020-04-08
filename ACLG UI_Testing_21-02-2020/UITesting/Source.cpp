@@ -6,6 +6,13 @@
 
 using namespace std;
 
+int AL_value = 0, AR_value = 0, AX_value = 0;
+int FL_value = 0, FR_value = 0, FX_value = 0;
+int NL_value = 0, NR_value = 0, NX_value = 0;
+int SL_value = 0, SR_value = 0, SX_value = 0;
+int VL_value = 0, VR_value = 0, VX_value = 0;
+int TX_value = 0;
+
 // Tip: Move cursor before printing text
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -37,7 +44,6 @@ void UIForExtended() {
 		COORD pos = { 0, 26 };
 		SetConsoleCursorPosition(hConsole, pos);
 		cout << "-----------------------------------------------------------------";
-
 	}
 }
 
@@ -50,21 +56,17 @@ void PredictionText() {
 		COORD pos = { 1, 27 };
 		SetConsoleCursorPosition(hConsole, pos);
 		cout << "Command Suggestion: ";
-
 	}
-
 }
 
 // Displays cut-off version of CommandLineUI();	
 void UIForSuggestion() {
-
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
 		COORD pos = { 0, 24 };
 		SetConsoleCursorPosition(hConsole, pos);
 		cout << "-----------------------------------------------------------------";
-
 	}
 }
 
@@ -86,6 +88,7 @@ void LastPipe() {
 // This function will display FULL Ui that includes area for skills
 void DisplayExtendedCommandArea() {
 
+	// we can call extended
 	UIForExtended();
 
 	if (INVALID_HANDLE_VALUE != hConsole)
@@ -108,6 +111,7 @@ void DisplayExtendedCommandArea() {
 	}
 }
 
+// function displaying the SKILLS  title
 void DisplaySkillsTitle() {
 
 	// Display Skill Title
@@ -131,60 +135,10 @@ void DisplaySkillsTitle() {
 		SetConsoleCursorPosition(hConsole, pos);
 
 		cout << "------------";
-
 	}
 }
 
-void DisplayIntelligence() {
-	// Display Intelligence Skill
-	if (INVALID_HANDLE_VALUE != hConsole)
-	{
-		//         pos = {across, up/down}
-		COORD pos = { 67, 3 };
-
-		SetConsoleCursorPosition(hConsole, pos);
-
-		cout << "Intelligence level: 0/120";
-
-	}
-
-	// Display Intelligence EXP
-	if (INVALID_HANDLE_VALUE != hConsole)
-	{
-		//         pos = {across, up/down}
-		COORD pos = { 67, 4 };
-
-		SetConsoleCursorPosition(hConsole, pos);
-
-		cout << "Intelligence XP: 0";
-
-	}
-
-	// Display Intelligence Remaining EXP
-	if (INVALID_HANDLE_VALUE != hConsole)
-	{
-		//         pos = {across, up/down}
-		COORD pos = { 67, 5 };
-
-		SetConsoleCursorPosition(hConsole, pos);
-
-		cout << "Remaining XP: 0";
-
-	}
-
-	// Bars under intelligence
-	if (INVALID_HANDLE_VALUE != hConsole)
-	{
-		//         pos = {across, up/down}
-		COORD pos = { 66, 6 };
-
-		SetConsoleCursorPosition(hConsole, pos);
-
-		cout << "-----------------------------";
-
-	}
-}	  
-
+// display ATTACK skill and all stats
 void DisplayAttacking() {
 
 
@@ -196,7 +150,7 @@ void DisplayAttacking() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Attacking level: 0/120";
+		cout << "Attacking level: " << AL_value << "/120";
 
 	}
 
@@ -208,7 +162,7 @@ void DisplayAttacking() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Attacking XP: 0";
+		cout << "Attacking XP: " << AX_value << "";
 
 	}
 
@@ -220,7 +174,7 @@ void DisplayAttacking() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Remaining XP: 0";
+		cout << "Remaining XP: " << AR_value << "";
 
 	}
 
@@ -237,6 +191,7 @@ void DisplayAttacking() {
 	}
 }
 
+// display NETWORKING skill and all stats
 void DisplayNetworking() {
 
 	// Display Networking Level
@@ -247,7 +202,7 @@ void DisplayNetworking() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Networking level: 0/120";
+		cout << "Networking level: " << NL_value << "/120";
 
 	}
 
@@ -259,7 +214,7 @@ void DisplayNetworking() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Networking XP: 0";
+		cout << "Networking XP: " << NX_value << "";
 
 	}
 
@@ -271,7 +226,7 @@ void DisplayNetworking() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Remaining XP: 0";
+		cout << "Remaining XP: " << NR_value << "";
 
 	}
 
@@ -288,6 +243,7 @@ void DisplayNetworking() {
 	}
 }
  
+// display SECURITY skill and all stats
 void DisplaySecurity() {
 
 	// Display Security Level
@@ -298,7 +254,7 @@ void DisplaySecurity() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Security level: 0/120";
+		cout << "Security level: " << SL_value << "/120";
 
 	}
 
@@ -310,7 +266,7 @@ void DisplaySecurity() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Security XP: 0";
+		cout << "Security XP: " << SX_value << "";
 
 	}
 
@@ -322,7 +278,7 @@ void DisplaySecurity() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Remaining XP: 0";
+		cout << "Remaining XP: " << SR_value << "";
 
 	}
 
@@ -340,6 +296,7 @@ void DisplaySecurity() {
 
 }
 
+// display VULNERABILITY skill and all stats
 void DisplayVul() {
 
 	// Display Vulnerability Level
@@ -350,7 +307,7 @@ void DisplayVul() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Vulnerability level: 0/120";
+		cout << "Vulnerability level: " << VL_value << "/120";
 
 	}
 
@@ -362,7 +319,7 @@ void DisplayVul() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Vulnerability XP: 0";
+		cout << "Vulnerability XP: " << VX_value << "";
 
 	}
 
@@ -374,7 +331,7 @@ void DisplayVul() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Remaining XP: 0";
+		cout << "Remaining XP: " << VR_value << "";
 
 	}
 
@@ -390,6 +347,7 @@ void DisplayVul() {
 	}
 }
 
+// display FUNCTIONALITY skill and all stats
 void DisplayFunctionality() {
 
 	// Display Functionality Level
@@ -400,7 +358,7 @@ void DisplayFunctionality() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Functionality level: 0/120";
+		cout << "Functionality level: " << FL_value << "/120";
 
 	}
 
@@ -412,7 +370,7 @@ void DisplayFunctionality() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Functionality XP: 0";
+		cout << "Functionality XP: " << FX_value << "";
 
 	}
 
@@ -424,7 +382,7 @@ void DisplayFunctionality() {
 
 		SetConsoleCursorPosition(hConsole, pos);
 
-		cout << "Remaining XP: 0";
+		cout << "Remaining XP: " << FR_value << "";
 
 	}
 }
@@ -437,19 +395,17 @@ int main() {
 
 	//CommandLineUI();					// WILL BE USED AT START OF TUTORIAL (MINUS LastPipe())
 	PredictionText();					// IGNORE OF TUTOIRAL 
-	UIForSuggestion();				// IGNORE FOR TUTORIAL
+	UIForSuggestion();					// IGNORE FOR TUTORIAL
 	DisplayExtendedCommandArea();		// When introducing skills, use this + LastPipe()
-	LastPipe();						// LastPipe. 
+	LastPipe();							// LastPipe. 
 
-
-	//DisplaySkillsTitle();
-	//DisplayAttacking();
-	//DisplayNetworking();
-	//DisplaySecurity();
-	//DisplayVul();
-	//DisplayFunctionality();
+	DisplaySkillsTitle();
+	DisplayAttacking();
+	DisplayNetworking();
+	DisplaySecurity();
+	DisplayVul();
+	DisplayFunctionality();
 	
-
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
