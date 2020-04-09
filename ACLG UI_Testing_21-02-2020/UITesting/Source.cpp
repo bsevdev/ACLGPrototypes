@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// ALL SKILL VALUES
 int AL_value = 0, AR_value = 0, AX_value = 0;
 int FL_value = 0, FR_value = 0, FX_value = 0;
 int NL_value = 0, NR_value = 0, NX_value = 0;
@@ -14,7 +15,6 @@ int VL_value = 0, VR_value = 0, VX_value = 0;
 int TX_value = 0;
 
 // Tip: Move cursor before printing text
-
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 // displays bars going across
@@ -387,11 +387,8 @@ void DisplayFunctionality() {
 	}
 }
 
-int main() {
-
-	system("mode 100, 28");
-
-	string input;
+void UseUI() {
+	string command_Input;
 
 	//CommandLineUI();					// WILL BE USED AT START OF TUTORIAL (MINUS LastPipe())
 	PredictionText();					// IGNORE OF TUTOIRAL 
@@ -405,16 +402,23 @@ int main() {
 	DisplaySecurity();
 	DisplayVul();
 	DisplayFunctionality();
-	
+
 	if (INVALID_HANDLE_VALUE != hConsole)
 	{
 		//         pos = {across, up/down}
 		COORD pos = { 1, 24 };		// tutorial = 1,26.   GAME = 1,24
 		SetConsoleCursorPosition(hConsole, pos);
 		cout << "C:\\Some\\Shitty\\User> ";
-		getline(cin, input);		// user input
-		
+		getline(cin, command_Input);		// user input
+
 	}
+}
+
+int main() {
+
+	system("mode 100, 28");
+
+	UseUI();
 
 	system("pause");
 }
