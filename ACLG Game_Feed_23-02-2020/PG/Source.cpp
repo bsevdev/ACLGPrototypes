@@ -28,7 +28,7 @@ string skillText4 = "Done."; // <--- windows alert here.
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-int gameFeedPosition = 3;			// position of where game feed starts, = 3 for moode 100,28
+const int gameFeedPosition = 1;			// position of where game feed starts, = 3 for moode 100,28
 int iSecret;						// holds random number for tips.
 
 // push text..
