@@ -7,7 +7,6 @@ int r = (rand() % 30) + 5;
 int randomArray[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 int randomNumber = 0;
 
-
 // random generation for XP
 int random(int from, int to) {
 	return rand() % (to - from + 1) + from;
@@ -18,12 +17,7 @@ int finalRandomNumber = 0;
 // Random generaton for ID 
 void playerIDGenerator() {
 
-	
-
-
 	for (int j = 0; j < 9; j++) {
-
-		
 
 		randomArray[j] = r;
 		randomNumber *= 100;
@@ -35,12 +29,24 @@ void playerIDGenerator() {
 			finalRandomNumber = randomNumber;
 		}
 
-		// checks if the random number is 10 digits or more
-		if (finalRandomNumber > 999999999) {	// if 10 digits
-
-			finalRandomNumber = randomNumber / 10;
-		}
 		
+
+		// checks if the random number is 10 digits or more
+		//if (finalRandomNumber > 999999999) {	// if 10 digits
+
+		//	finalRandomNumber = randomNumber / 10;
+		//}
+		
+	}
+
+	cout << "val: " << finalRandomNumber << endl;
+	system("pause");
+
+	for (int i = 0; i < 8; i++) {
+		finalRandomNumber = randomNumber / 10;
+		randomNumber = finalRandomNumber;
+
+		//cout << finalRandomNumber << endl;
 	}
 }
 
@@ -48,7 +54,7 @@ int main() {
 
 	
 
-	//unsigned srand((int)time(NULL));
+	unsigned srand((int)time(NULL));
 
 	/*while (1) {
 		

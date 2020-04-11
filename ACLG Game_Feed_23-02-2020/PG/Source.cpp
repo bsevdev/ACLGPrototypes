@@ -462,9 +462,8 @@ void GameFeedInput() {
 	}
 }
 
-int main() {
-
-	system("mode 100,28");
+// calls all functions, starts seed, loops
+void runGameFeed() {
 
 	// begin random seed
 	unsigned srand((int)time(NULL));
@@ -480,14 +479,14 @@ int main() {
 		displayGameFeed();
 
 		// display some UI
-		displayUI();
+		//displayUI();
 
 
 		if (INVALID_HANDLE_VALUE != hConsole)
 		{
 			COORD pos = { 9, 37 };
 			SetConsoleCursorPosition(hConsole, pos);
-			
+
 			getline(cin, cmd);		// user input
 		}
 
@@ -499,6 +498,13 @@ int main() {
 
 		system("cls");
 	}
+}
+
+int main() {
+
+	system("mode 100,28");
+
+	runGameFeed();
 
 	system("pause");
 }
