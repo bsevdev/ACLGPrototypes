@@ -17,7 +17,7 @@ string cmd = "";																						// user command input
 string typedYesString = "You typed yes";																
 string typedNoString = "You typed no";																	// test strings
 string lastString = "";																					// used to empty string
-string badInput = "That is not a command!";																// bad command.
+string badInput = " That is not a command!";																// bad command.
 string hintString = "[TIP]: Try growing up a little bit, it helps.";
 string hintString2 = "[TIP]: Type \"stats\" to display your basic player statistics.";					// tip strings
 //--------------
@@ -473,7 +473,7 @@ void runGameFeed() {
 	while (gameOver == false) {
 
 		// push text down (mainly for UI)
-		pushSpace();
+		//pushSpace();
 
 		// prints gameFeed
 		displayGameFeed();
