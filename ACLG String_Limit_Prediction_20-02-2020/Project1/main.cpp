@@ -123,7 +123,7 @@ std::string lastfullNameValue;
 std::string fullusername;
 std::string prevString;
 std::string predictString;
-#pragma endregion String SavingS
+#pragma endregion String Saving
 
 #pragma region
 int charlimit = 0;
